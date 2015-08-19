@@ -12,6 +12,9 @@
 
 #Backup database
 
+#Run SQL scripts
+#invoke-sqlcmd -inputfile "c:\mysqlfile.sql" -serverinstance "servername\serverinstance" -database "mydatabase" 
+
 #Back up files which bound to be replaced
 
 #Replace files
