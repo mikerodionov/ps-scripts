@@ -1,16 +1,16 @@
-# Script:	  create-k2-site.ps1
-# Author: 	Mikhail Rodionov
-# Website: 	http://www.mikerodionov.com
-# Purpose: 	Provision K2 web site with configured HTTPS bindings and self-signed certificate
-# Version:  0.1
-# Date:     2017-02-04
+# Script:	create-k2-site.ps1
+# Author:	Mikhail Rodionov
+# Website:	http://www.mikerodionov.com
+# Purpose:	Provision K2 web site with configured HTTPS bindings and self-signed certificate
+# Version:	0.1
+# Date:		2017-02-04
 
 #Define variables as needed for your environment:
 $K2FarmNameFQDN='K2.conundrum.com'	
 $SiteName = "K2"
 
 #Create self-signed certificate
-#New-SelfSignedCertificate -DnsName $K2FarmNameFQDN -CertStoreLocation cert:Localmachine\My
+New-SelfSignedCertificate -DnsName $K2FarmNameFQDN -CertStoreLocation cert:Localmachine\My
 
 #Create web site
 $SiteFolder = Join-Path -Path 'C:\inetpub\wwwroot' -ChildPath $SiteName
