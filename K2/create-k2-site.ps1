@@ -17,5 +17,5 @@ $SiteFolder = Join-Path -Path 'C:\inetpub\wwwroot' -ChildPath $SiteName
 New-WebSite -Name $SiteName -PhysicalPath $SiteFolder -Force
 $IISSite = "IIS:\Sites\$SiteName"
 Set-ItemProperty $IISSite -name  Bindings -value @{protocol="https";bindingInformation="*:443:$K2FarmNameFQDN"}
-#Assign certificate to site bindinf
+#Assign certificate to site binding
 Get-ChildItem cert:\LocalMachine\My | where { $_.Subject -match $K2FarmNameFQDN } | select -First 1 | New-Item IIS:\SslBindings\*:443:$K2FarmNameFQDN
