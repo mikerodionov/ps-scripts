@@ -2,8 +2,8 @@
 #https://gallery.technet.microsoft.com/scriptcenter/Check-SQL-Server-a-a5758043
 #Corrective actions:
 #https://msdn.microsoft.com/en-us/library/ms189858.aspx
-# > 5% and < = 30%	ALTER INDEX REORGANIZE
-# > 30%	ALTER INDEX REBUILD WITH (ONLINE = ON)*
+# > 5% and < = 30% ->	ALTER INDEX REORGANIZE
+# > 30%	           -> ALTER INDEX REBUILD WITH (ONLINE = ON)
 
 SELECT OBJECT_NAME(ind.OBJECT_ID) AS TableName, 
 ind.name AS IndexName, indexstats.index_type_desc AS IndexType, 
