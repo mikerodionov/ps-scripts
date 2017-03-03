@@ -6,7 +6,7 @@
 #If index is unused, don't bother defragmenting it (sys.dm_db_index_usage_stats)
 
 #> 5% and < = 30% -> ALTER INDEX REORGANIZE
-#> 30%	           -> ALTER INDEX REBUILD WITH (ONLINE = ON)
+#> 30%	          -> ALTER INDEX REBUILD WITH (ONLINE = ON)
 
 SELECT OBJECT_NAME(ind.OBJECT_ID) AS TableName, 
 ind.name AS IndexName, indexstats.index_type_desc AS IndexType, 
