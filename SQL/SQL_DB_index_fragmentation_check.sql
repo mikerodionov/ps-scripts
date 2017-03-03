@@ -2,11 +2,11 @@
 #https://gallery.technet.microsoft.com/scriptcenter/Check-SQL-Server-a-a5758043
 #Corrective actions:
 #https://msdn.microsoft.com/en-us/library/ms189858.aspx
-# Rebuild only if page count > than 1000 / If an index has less than 1000 pages and is in memory, don't bother removing fragmentation
-# If index is unused, don't bother defragmenting it (sys.dm_db_index_usage_stats)
+#Rebuild only if page count > than 1000 / If an index has less than 1000 pages and is in memory, don't bother removing fragmentation
+#If index is unused, don't bother defragmenting it (sys.dm_db_index_usage_stats)
 
-# > 5% and < = 30% -> ALTER INDEX REORGANIZE
-# > 30%	           -> ALTER INDEX REBUILD WITH (ONLINE = ON)
+#> 5% and < = 30% -> ALTER INDEX REORGANIZE
+#> 30%	           -> ALTER INDEX REBUILD WITH (ONLINE = ON)
 
 SELECT OBJECT_NAME(ind.OBJECT_ID) AS TableName, 
 ind.name AS IndexName, indexstats.index_type_desc AS IndexType, 
