@@ -12,7 +12,10 @@
 # Occurs when the next logical page is not the next physical page
 # Prevents optimal readahead -> Reduces range scan performance
 # Does not affect pages that are already in cache
-# Smaller indexes affected less (e.g. 1-5000 pages or less)
+# Smaller indexes affected less (e.g. 1-5000 pages or less), as: 
+#   - those generally reside in memory
+#   - they are not that large, so you are not doing large range-scans on them
+# 1000 pages is old guideline, 5000 can be used for modern HW
 
 SELECT OBJECT_NAME(ind.OBJECT_ID) AS TableName, 
 ind.name AS IndexName, indexstats.index_type_desc AS IndexType, 
@@ -21,5 +24,5 @@ FROM sys.dm_db_index_physical_stats(DB_ID(), NULL, NULL, NULL, NULL) indexstats
 INNER JOIN sys.indexes ind  
 ON ind.object_id = indexstats.object_id 
 AND ind.index_id = indexstats.index_id 
-WHERE indexstats.avg_fragmentation_in_percent > 30 AND indexstats.page_count > 1000
+WHERE indexstats.avg_fragmentation_in_percent > 30 AND indexstats.page_count > 5000
 ORDER BY indexstats.avg_fragmentation_in_percent DESC
