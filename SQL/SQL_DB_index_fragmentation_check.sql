@@ -8,6 +8,12 @@
 #> 5% and < = 30% -> ALTER INDEX REORGANIZE
 #> 30%	          -> ALTER INDEX REBUILD WITH (ONLINE = ON)
 
+# avg_fragmentation_in_percent - Logical/External fragmentation
+# Occurs when the next logical page is not the next physical page
+# Prevents optimal readahead -> Reduces range scan performance
+# Does not affect pages that are already in cache
+# Smaller indexes affected less (e.g. 1-5000 pages or less)
+
 SELECT OBJECT_NAME(ind.OBJECT_ID) AS TableName, 
 ind.name AS IndexName, indexstats.index_type_desc AS IndexType, 
 indexstats.avg_fragmentation_in_percent, indexstats.page_count 
