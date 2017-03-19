@@ -12,5 +12,5 @@ $new_wa_name="Portal"
 $WebApp = SPWebApplication | where {$_.Name -match $old_wa_name}
 $WebApp.Name =$new_wa_name
 $WebApp.Update()
-# This bit is just to verify it updated correctly
+# This line is just to verify that web app name has been changed correctly:
 Get-SPWebApplication | where {$_.Name -match $new_wa_name}
