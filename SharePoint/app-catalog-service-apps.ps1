@@ -34,3 +34,7 @@ $SubSettings = New-SPSubscriptionSettingsServiceApplication -Name "Subscription 
 -DatabaseName WSS_SubscriptionSettingsSvc
 # Create the Subscription Settings Service Application Proxy
 $SubSettingsProxy = New-SPSubscriptionSettingsServiceApplicationProxy -ServiceApplication $SubSettings
+
+# Verify provisioned service applications:
+Get-SPServiceApplication -Name 'App Management Service' | Select DisplayName, Status
+Get-SPServiceApplication -Name 'Subscription Settings Service' | Select DisplayName, Status
