@@ -8,25 +8,29 @@ if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinu
 
 # Create App Management Service Application
 
-# Adjust -Identity parameter as necessary for managed service account:
-$msa = Get-SPManagedAccount -Identity conundrum\sp_serviceapps
+# Adjust -Identity parameter as necessary for managed service account
+# Make sure that account specified has been added as managed accont in SharePoint
+# CA > Security > Configure managed accounts
+$msa = Get-SPManagedAccount -Identity conundrum\svc-sp-serviceapps
  
 # Create the App Management Service Application Pool
-$AppPool = New-SPServiceApplicationPool -Name "AppManagementAppPool" -Account $msa
+$AppPoolAppSvc = New-SPServiceApplicationPool -Name "AppManagementAppPool" -Account $msa
 
 # Create App Management Service Application
 # App Management Service Application required for app catalog as it establishes subdomains for apps and generates app IDs
-$AppManagement = New-SPAppManagementServiceApplication -Name "App Management Service" -ApplicationPool $AppPool
+$AppManagement = New-SPAppManagementServiceApplication -Name "App Management Service" -ApplicationPool $AppPoolAppSvc `
+-DatabaseName WSS_AppManagementSvc
 # Create App Management Service Application Proxy
 $AppManagementProxy = New-SPAppManagementServiceApplicationProxy -Name "App Management Service Proxy" -ServiceApplication $AppManagement
  
 # Create the Subscription Settings Service Application
 
 # Create the Subscription Settings Service Application Pool:
-$AppPool2 = New-SPServiceApplicationPool -Name "SubSettingsAppPool" -Account $msa
+$AppPoolSubSvc = New-SPServiceApplicationPool -Name "SubSettingsAppPool" -Account $msa
 
 # Create the Subscription Settings Service Application
 # Subscription Settings Service Application required for app catalog as it handles handles app permissions and licensing information
-$SubSettings = New-SPSubscriptionSettingsServiceApplication -Name "Subscription Settings Service" -ApplicationPool $AppPool2
+$SubSettings = New-SPSubscriptionSettingsServiceApplication -Name "Subscription Settings Service" -ApplicationPool $AppPoolSubSvc `
+-DatabaseName WSS_SubscriptionSettingsSvc
 # Create the Subscription Settings Service Application Proxy
 $SubSettingsProxy = New-SPSubscriptionSettingsServiceApplicationProxy -ServiceApplication $SubSettings
