@@ -6,8 +6,7 @@ if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinu
     Add-PSSnapin "Microsoft.SharePoint.PowerShell"
 }
 
-# Use this cmdlet to get a list of available templates:
-Get-SPWebTemplate
+# Use this cmdlet to get a list of available templates: Get-SPWebTemplate
 # Create SP site using specified template:
 # STS#0 = Team Site
 $Template = Get-SPWebTemplate "STS#0"
