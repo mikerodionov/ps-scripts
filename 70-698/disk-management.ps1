@@ -14,3 +14,11 @@ chkdsk /f /r
 
 # Check storage health (physical disks)
 Get-StorageNode
+
+# Set partition type for the disk:
+Set-Disk -PartitionStyle <PartitionStyle>
+
+# -PartitionStyle <PartitionStyle>
+# Specifies the type of the partition. The acceptable values for this parameter are: MBR or GPT. The disk must be
+# initialized (such as using the Initialize-Disk cmdlet) and set to read-write (IsReadOnly $false) before this cm
+# dlet will work. The disk must be set to read-only = false before this cmdlet will work.
