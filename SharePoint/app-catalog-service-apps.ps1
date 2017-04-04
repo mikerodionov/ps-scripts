@@ -13,8 +13,12 @@ if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinu
 # CA > Security > Configure managed accounts
 $msa = Get-SPManagedAccount -Identity conundrum\svc-sp-serviceapps
  
-# Create the App Management Service Application Pool
-$AppPoolAppSvc = New-SPServiceApplicationPool -Name "AppManagementAppPool" -Account $msa
+# Create the App Management Service Application Pool if it not exists
+if ((Get-SPServiceApplicationPool "AppManagementAppPool" -ErrorAction SilentlyContinue) -eq $null)
+    {
+    $AppPoolAppSvc = New-SPServiceApplicationPool -Name "AppManagementAppPool" -Account $msa
+    }
+    else {$AppPoolAppSvc = Get-SPServiceApplicationPool "AppManagementAppPool"}
 
 # Create App Management Service Application
 # App Management Service Application required for app catalog as it establishes subdomains for apps and generates app IDs
