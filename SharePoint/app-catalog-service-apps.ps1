@@ -34,7 +34,7 @@ if ((Get-SPServiceApplicationPool "SubSettingsAppPool" -ErrorAction SilentlyCont
     {
     $AppPoolSubSvc = New-SPServiceApplicationPool -Name "SubSettingsAppPool" -Account $msa
     }
-    else {$AppPoolAppSvc = Get-SPServiceApplicationPool "SubSettingsAppPool"}
+    else {$AppPoolSubSvc = Get-SPServiceApplicationPool "SubSettingsAppPool"}
 
 # Create the Subscription Settings Service Application
 # Subscription Settings Service Application required for app catalog as it handles handles app permissions and licensing information
