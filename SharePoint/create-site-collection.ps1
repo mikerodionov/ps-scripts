@@ -9,5 +9,6 @@ if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinu
 # Use this cmdlet to get a list of available templates: Get-SPWebTemplate
 # Create SP site using specified template:
 # APPCATALOG#0 = App Catalog Site
+# STS#0 = Team Site
 $Template = Get-SPWebTemplate "APPCATALOG#0"
 New-SPSite -Url "https://cndrm-srv03.apps.conundrum.com" -OwnerAlias "conundrum\administrator" -Template $template
