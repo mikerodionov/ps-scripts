@@ -1,3 +1,7 @@
+# This script creates service applications required for App Catalog
+# Works/tested both for SP2013/2016
+# When reusing multiple times targeting the same SQL instance make sure to adjust DB names for uniqueness
+
 # Load SharePoint PS Module (if not already loaded)
 $ver = $host | select version
 if ($ver.Version.Major -gt 1) {$host.Runspace.ThreadOptions = "ReuseThread"} 
