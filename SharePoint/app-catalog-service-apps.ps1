@@ -7,7 +7,6 @@ if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinu
 }
 
 # Create App Management Service Application
-
 # Adjust -Identity parameter as necessary for managed service account
 # Make sure that account specified has been added as managed accont in SharePoint
 # CA > Security > Configure managed accounts
@@ -23,7 +22,7 @@ if ((Get-SPServiceApplicationPool "AppManagementAppPool" -ErrorAction SilentlyCo
 # Create App Management Service Application
 # App Management Service Application required for app catalog as it establishes subdomains for apps and generates app IDs
 $AppManagement = New-SPAppManagementServiceApplication -Name "App Management Service" -ApplicationPool $AppPoolAppSvc `
--DatabaseName WSS_AppManagementSvc
+-DatabaseName SP2013_AppManagementSvc
 # Create App Management Service Application Proxy
 $AppManagementProxy = New-SPAppManagementServiceApplicationProxy -Name "App Management Service Proxy" -ServiceApplication $AppManagement
  
@@ -39,13 +38,13 @@ if ((Get-SPServiceApplicationPool "SubSettingsAppPool" -ErrorAction SilentlyCont
 # Create the Subscription Settings Service Application
 # Subscription Settings Service Application required for app catalog as it handles handles app permissions and licensing information
 $SubSettings = New-SPSubscriptionSettingsServiceApplication -Name "Subscription Settings Service" -ApplicationPool $AppPoolSubSvc `
--DatabaseName WSS_SubscriptionSettingsSvc
+-DatabaseName SP2013_SubscriptionSettingsSvc
 # Create the Subscription Settings Service Application Proxy
 $SubSettingsProxy = New-SPSubscriptionSettingsServiceApplicationProxy -ServiceApplication $SubSettings
 
 # Verify provisioned service applications:
 Get-SPServiceApplication -Name 'App Management Service' | Select DisplayName, Status
-Get-SPServiceApplication -Name 'Subscription Settings Service' | Select DisplayName, Status# Load SharePoint PS Module (if not already loaded)
+Get-SPServiceApplication -Name 'Subscription Settings Service' | Select DisplayName, Status
 $ver = $host | select version
 if ($ver.Version.Major -gt 1) {$host.Runspace.ThreadOptions = "ReuseThread"} 
 if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinue) -eq $null) 
