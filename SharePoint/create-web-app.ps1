@@ -6,8 +6,22 @@ if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinu
     Add-PSSnapin "Microsoft.SharePoint.PowerShell"
 }
 
-# Create new web application
+# Define variables
+$WebAppName = 'SharePointHttp'
+$Port = "80"
+$URL = "http://SharePointHttp.denallix.com"
+$AppPool = "SharePointHttp"
+$AppPoolAcc = (Get-SPManagedAccount 'denallix\SPFarmService')
+$DBName = "WSS_Content_SharePointHttp"
+
+# Create web app if not exist
+if (!(Get-SPWebApplication $WebAppName -ErrorAction SilentlyContinue))
+{
+Write-Host 'Creating Web Application ' $WebAppName -ForegroundColor Yellow
 $ap = New-SPAuthenticationProvider
-New-SPWebApplication -Name "Conundrum Apps" -Port 443 -Url "https://cndrm-srv03.apps.conundrum.com" `
--ApplicationPool "Conundrum Apps" -ApplicationPoolAccount (Get-SPManagedAccount "conundrum\svc-sp") `
--AuthenticationProvider $ap -SecureSocketsLayer -DatabaseName "WSS_Content_CNDRM_Apps"
+New-SPWebApplication -Name $WebAppName -Port $Port -Url $URL `
+-ApplicationPool $AppPool -ApplicationPoolAccount $AppPoolAcc `
+-AuthenticationProvider $ap -DatabaseName $DBName 
+Write-Host 'Web Application ' $WebAppName 'has been created' -ForegroundColor Green
+}
+else {Write-Host 'Web Application' $WebAppName 'already exist' -ForegroundColor Red}
