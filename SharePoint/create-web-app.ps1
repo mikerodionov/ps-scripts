@@ -22,6 +22,6 @@ $ap = New-SPAuthenticationProvider
 New-SPWebApplication -Name $WebAppName -Port $Port -Url $URL `
 -ApplicationPool $AppPool -ApplicationPoolAccount $AppPoolAcc `
 -AuthenticationProvider $ap -DatabaseName $DBName 
-Write-Host 'Web Application ' $WebAppName 'has been created' -ForegroundColor Green
+Write-Host 'Web Application' $WebAppName 'has been created' -ForegroundColor Green
 }
 else {Write-Host 'Web Application' $WebAppName 'already exist' -ForegroundColor Red}
