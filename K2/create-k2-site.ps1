@@ -5,6 +5,9 @@
 # Version:	0.1
 # Date:		2017-02-04
 
+#Import IIS PS module:
+Import-Module WebAdministration
+
 #Define variables as needed for your environment:
 $K2FarmNameFQDN='K2.conundrum.com'	
 $SiteName = "K2"
