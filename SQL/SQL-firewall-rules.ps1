@@ -1,3 +1,4 @@
+#Source: https://ryanmangansitblog.com/2013/05/01/powershell-script-for-sql-firewall-rules/
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned  
 #Enabling SQL Server Ports
 New-NetFirewallRule -DisplayName “SQL Server” -Direction Inbound –Protocol TCP –LocalPort 1433 -Action allow
