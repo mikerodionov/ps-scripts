@@ -8,6 +8,7 @@ if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinu
 
 # Define variables
 $WebAppName = 'SharePointHttp'
+# For HTTPS you have to append New-SPWebApplication with -SecureSocketsLayer parameter
 $Port = "80"
 $URL = "http://SharePointHttp.denallix.com"
 $AppPool = "SharePointHttp"
