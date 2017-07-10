@@ -1,6 +1,9 @@
 # This script creates service applications required for App Catalog
 # Works/tested both for SP2013/2016
 # When reusing multiple times targeting the same SQL instance make sure to adjust DB names for uniqueness
+# If you unable to start Subscription service app despite script completed with no error
+# make sure you have enough RAM, e.g. 4GB on VM with Server 2012 R2 + SQL 2012 + SP2013 won't be enough
+# check Event Viewer for related error and increase your memory to 6GB or more
 
 # Load SharePoint PS Module (if not already loaded)
 $ver = $host | select version
