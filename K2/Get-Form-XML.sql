@@ -2,8 +2,7 @@
 --Adjust form name below
 DECLARE @FormName nvarchar(200) = 'MyTestForm';
 DECLARE @FormID uniqueidentifier;
-SELECT @FormID = (SELECT [ID] FROM [K2].[Form].[Form]
-  WHERE [Name] = @FormName);
+SELECT @FormID = (SELECT [ID] FROM [K2].[Form].[Form] WHERE [Name] = @FormName);
 
 SELECT *
 FROM [Form].[AuditLog]
