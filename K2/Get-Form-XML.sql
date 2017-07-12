@@ -1,6 +1,6 @@
 --Query to pull FORM XML from K2 DB
 --Adjust form name below
-DECLARE @FormName nvarchar(200) = 'MyTestForm';
+DECLARE @FormName nvarchar(max) = 'MyTestForm';
 DECLARE @FormID uniqueidentifier;
 SELECT @FormID = (SELECT [ID] FROM [K2].[Form].[Form] WHERE [Name] = @FormName);
 
