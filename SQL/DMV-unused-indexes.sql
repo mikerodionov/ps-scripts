@@ -1,6 +1,7 @@
 -- Find unused indexes using DMVs
 -- Compare user_seeks with user_updates, if index has more seeks than updates then good
 -- Lots of user_updated but no user_seeks means index not being used but incur maintenance cost
+-- This possibly means that index has to be dropped
 SELECT
 	OBJECT_NAME(s.object_id) AS TableName,
 	i.name AS IndexName,
