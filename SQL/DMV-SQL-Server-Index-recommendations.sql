@@ -1,5 +1,5 @@
 -- Take into account that SQL Server analyse statements in isolation
--- so blindly created all recommended indexes may lead to over-indexing
+-- so blindly creating all recommended indexes may lead to over-indexing
 SELECT     
     TableName = d.statement,
     d.equality_columns, 
