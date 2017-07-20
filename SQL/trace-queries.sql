@@ -1,7 +1,7 @@
 -- List server side traces
 SELECT * FROM sys.fn_trace_getinfo(0);
 
--- List server side traces (easier to read form):
+-- List server side traces (user-friendly form):
 SELECT
   traceid AS TraceId
   max(case when property = 2 then value end) AS TraceFile,
