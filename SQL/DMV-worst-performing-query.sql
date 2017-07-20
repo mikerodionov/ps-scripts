@@ -10,8 +10,9 @@ SELECT TOP 20
         [TotalIO] = (total_logical_reads + total_logical_writes) ,
         [AverageElapsedTime] = total_elapsed_time / qs.execution_count,
         [AverageTimeBlocked] = (total_elapsed_time - total_worker_time) / qs.execution_count,
-     [AverageRowsReturned] = total_rows / qs.execution_count,    
-     [Query Text] = SUBSTRING(qt.text,qs.statement_start_offset/2 +1, 
+        --NOTE: total_rows column was added in SQL Server 2008 R2, for older version comment out line below
+        [AverageRowsReturned] = total_rows / qs.execution_count,    
+        [Query Text] = SUBSTRING(qt.text,qs.statement_start_offset/2 +1, 
             (CASE WHEN qs.statement_end_offset = -1 
                 THEN LEN(CONVERT(nvarchar(max), qt.text)) * 2 
                 ELSE qs.statement_end_offset end - qs.statement_start_offset)
