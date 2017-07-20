@@ -1,3 +1,6 @@
+-- High number of updates and very low usage (seek operations) likely index is unused for some reason
+-- Consider modifying or dropping index as it may slow down DML statements
+-- Warning - exlusion to this rule of thumb may be index used only for some nightly/weekly batch process
 SELECT
     [DatabaseName] = DB_Name(db_id()),
     [TableName] = OBJECT_NAME(i.object_id),
