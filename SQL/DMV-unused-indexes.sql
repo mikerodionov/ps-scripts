@@ -2,6 +2,7 @@
 -- Compare user_seeks with user_updates, if index has more seeks than updates then good
 -- Lots of user_updated but no user_seeks means index not being used but incur maintenance cost
 -- This possibly means that index has to be dropped
+-- NOTE: To use DMV user has to have VIEW SERVER STATE privilege
 SELECT
 	OBJECT_NAME(s.object_id) AS TableName,
 	i.name AS IndexName,
