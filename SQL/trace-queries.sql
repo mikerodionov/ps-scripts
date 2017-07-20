@@ -15,3 +15,12 @@ SELECT
   end) AS CurrentStatus
 FROM sys.fn_trace_getinfo(0)
 GROUP BY traceid;
+
+-- Stop Trace
+exec sp_trace_setstatus @TraceID, 0
+
+-- (Re)start the trace
+exec sp_trace_setstatus @TraceID, 1
+
+-- Remove the trace definition from SQL Server
+exec sp_trace_setstatus @TraceID, 2
