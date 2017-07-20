@@ -3,7 +3,7 @@ SELECT * FROM sys.fn_trace_getinfo(0);
 
 -- List server side traces (user-friendly form):
 SELECT
-  traceid AS TraceId
+  traceid AS TraceId,
   max(case when property = 2 then value end) AS TraceFile,
   max(case when property = 3 then value end) AS MaxSize,
   max(case when property = 4 then value end) AS StopTime,
