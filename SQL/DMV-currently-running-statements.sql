@@ -1,5 +1,5 @@
 -- List statements which are running at the moment
--- Check for slow query blocking other things
+-- Check for slow query blocking other things - watch out for DurationInSeconds and resoucrces usage
 SELECT
         [DatabaseName] = db_name(rq.database_id),
         s.session_id, 
