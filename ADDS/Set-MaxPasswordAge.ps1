@@ -1,2 +1,2 @@
  # Disable passwords expiration
- Set-ADDefaultDomainPasswordPolicy -Identity infanova.com -MaxPasswordAge 0
+ Set-ADDefaultDomainPasswordPolicy -Identity domain.com -MaxPasswordAge 0
