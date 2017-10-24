@@ -1,16 +1,10 @@
 DECLARE @SearchStr nvarchar(100)
 SET @SearchStr = '%text_to_search_for%'
  
- 
--- Copyright © 2002 Narayana Vyas Kondreddi. All rights reserved.
 -- Purpose: To search all columns of all tables for a given search string
 -- Written by: Narayana Vyas Kondreddi
--- Site: http://vyaskn.tripod.com
--- Updated and tested by Tim Gaunt
--- http://www.thesitedoctor.co.uk
--- http://blogs.thesitedoctor.co.uk/tim/2010/02/19/Search+Every+Table+And+Field+In+A+SQL+Server+Database+Updated.aspx
--- Tested on: SQL Server 7.0, SQL Server 2000, SQL Server 2005 and SQL Server 2010
--- Date modified: 03rd March 2011 19:00 GMT
+-- Tested on: SQL Server 7.0, SQL Server 2000, SQL Server 2005 and SQL Server 2010, SQL Server 2014
+
 CREATE TABLE #Results (ColumnName nvarchar(370), ColumnValue nvarchar(3630))
  
 SET NOCOUNT ON
