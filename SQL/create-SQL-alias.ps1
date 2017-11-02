@@ -6,8 +6,7 @@ $AliasName
 $64bit = "HKLM:\SOFTWARE\Microsoft\"
 $32bit = "HKLM:\SOFTWARE\Wow6432Node\Microsoft\"
  
-## chect if the ConnectTo SubFolder 
-## exist in the registry if not it will create it.
+## Check if the ConnectTo SubFolder exists in the registry if not create it
 If((Test-Path -Path ($64bit + "MSSQLServer\Client\ConnectTo"))-ne $true)
     {
     $key = (get-item HKLM:\).OpenSubKey("SOFTWARE\Microsoft\MSSQLServer\Client", $writable).CreateSubKey("ConnectTo")
