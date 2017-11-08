@@ -10,5 +10,6 @@ if ((Get-PSSnapin "Microsoft.SharePoint.PowerShell" -ErrorAction SilentlyContinu
 # Create SP site using specified template:
 # APPCATALOG#0 = App Catalog Site
 # STS#0 = Team Site
+# SPSMSITEHOST#0 = My Sites Host
 $Template = Get-SPWebTemplate "APPCATALOG#0"
 New-SPSite -Url "https://cndrm-srv03.apps.conundrum.com" -OwnerAlias "conundrum\administrator" -Template $template
