@@ -1,0 +1,9 @@
+DECLARE @COUNT AS INT
+SET @COUNT=0
+DECLARE @tmp varchar(40)
+WHILE(@COUNT<=1000)
+    BEGIN
+	INSERT INTO dbo.History (Username, [Description])
+	VALUES ((SELECT SUBSTRING(CONVERT(varchar(40), NEWID()),0,9)),(SELECT SUBSTRING(CONVERT(varchar(40), NEWID()),0,9)))
+	SET @COUNT = @COUNT+1;
+    END
