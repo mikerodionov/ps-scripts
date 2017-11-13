@@ -3,7 +3,6 @@
 # Site Collection Administrator on the App Catalog Site Collection
 # db_owner rights on the SharePoint_Config Database
 # db_datareader role on the SharePoint_Config Database
-# SharePoint Shell Access role
 # SPShelladmin DB role
 
 # Grant SPShelladmin DB role on App Management DB
