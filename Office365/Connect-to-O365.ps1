@@ -6,3 +6,6 @@ $cred = get-credential
 
 # Establish connection
 Connect-MsolService -Credential $cred
+
+# Example command for testing purposes
+Get-MsolUser
