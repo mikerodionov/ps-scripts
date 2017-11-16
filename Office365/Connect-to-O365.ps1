@@ -8,4 +8,5 @@ $cred = get-credential
 Connect-MsolService -Credential $cred
 
 # Example command for testing purposes
+# O365 commands naming convention <Verb>-Msol<noun>
 Get-MsolUser
