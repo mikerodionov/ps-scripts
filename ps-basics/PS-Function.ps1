@@ -9,3 +9,5 @@ Function Add ($a, $b)
 $result = $a + $b
 Write-Host $result
 }
+# Dot sourcing function:
+. .\functions.ps1
