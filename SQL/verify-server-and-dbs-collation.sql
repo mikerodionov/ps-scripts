@@ -19,7 +19,3 @@ FROM sys.[tables] AS T
 INNER JOIN sys.[all_columns] AC ON T.[object_id] = AC.[object_id] 
 INNER JOIN sys.[types] TY ON AC.[system_type_id] = TY.[system_type_id] AND AC.[user_type_id] = TY.[user_type_id] 
 WHERE T.[is_ms_shipped] = 0 
---AND AC.name like '%AIStartDate%'
-AND (T.[name] = 'Action' AND OBJECT_SCHEMA_NAME(T.[object_id],DB_ID()) = 'WorkSpace') 
-OR AC.name like 'Name'
-ORDER BY T.[name], AC.[column_id]
