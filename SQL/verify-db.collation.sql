@@ -1,4 +1,7 @@
 --This script shows default DB collation + all tables and columns with collation other than default one
+--Adjust target DB name as necessary
+USE K2
+
 DECLARE @DatabaseCollation VARCHAR(100)
 
 SELECT 
