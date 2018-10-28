@@ -1,8 +1,8 @@
 DECLARE @VersionWhereEscalationWasDeleted INT;
 DECLARE @ProcessWhichWillExpire NVARCHAR(MAX);
 
-SET @VersionWhereEscalationWasDeleted = 7; -- (SAMPLE)
-SET @ProcessWhichWillExpire = N'Full\Name\Of\Process'; -- (SAMPLE) 'HR\EmployeeOnBoarding'
+SET @VersionWhereEscalationWasDeleted = 7; -- (SAMPLE VALUE)
+SET @ProcessWhichWillExpire = N'ProjectName\ProcessName'; -- (SAMPLE VALUE)
 
 DELETE [AS] FROM [Server].[Async] AS [AS]
        WHERE [AS].[Type] = 5
