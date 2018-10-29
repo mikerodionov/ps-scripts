@@ -1,7 +1,7 @@
 --Be sure to back up your K2 database before use this script
---Limitation: Only works if form has been checked out, does not work for newly created form which has not been explicitly checked out
---I.e. script will fail if form was created and not checked in
---Tested with: K2 4.6.11
+--Warning: If target form has never been checked out (only saved) this form will be lost/deleted after executing stored procedure
+--Warning: This stored procedure cancel all changes performed on checked out form - and reverts you to latested checked in version state
+--Tested with: K2 4.6.11-5.2
 --Adjust K2 database name as necessary on the line below (in case you are using non-default K2 database name)
 USE K2
 DECLARE @FORM_NAME AS varchar(128)
