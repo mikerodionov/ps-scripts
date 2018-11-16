@@ -1,12 +1,17 @@
 #Specifiy name of machine to which you need to obtain OU
-$pc='dlx'
-(Get-ADComputer $pc).DistinguishedName
-
+$pc=hostname
+$PC_OU=(Get-ADComputer $pc).DistinguishedName
 #Get total number of users (enabled and disabled)
-(Get-ADUser -filter *).count
+$TNU=(Get-ADUser -filter *).count
 #Get total number of enabled users
-(Get-AdUser -filter * |Where {$_.enabled -eq "True"}).count
+$TNEU=(Get-AdUser -filter * |Where {$_.enabled -eq "True"}).count
 #Get total number of disabled users
-(Get-ADUser -filter * |Where {$_.enabled -ne "False"}).count
+$TNDU=(Get-ADUser -filter * |Where {$_.enabled -ne "False"}).count
 #Get number of groups
-(Get-ADGroup -filter *).count
+$TNG=(Get-ADGroup -filter *).count
+
+$pc organizational unit: $PC_OU
+Total number of domain users is $TNU
+Total number of enabled domain users is $TNEU
+Total number of disabled domain users is $TNDU
+Total number of domaim groups is $TNG
