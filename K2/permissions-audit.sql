@@ -10,8 +10,8 @@ CREATE TABLE #TMPmUserPermissions
    [ServerEvent] BIT
 )
 INSERT INTO #TMPmUserPermissions EXEC [Server].mUserPermissionsGet
-
-SELECT * FROM  #TMPmUserPermissions JOIN Server.ProcSet ON ProcSetID = ProcSetID
+-- Server level permissions for specific user
+SELECT * FROM  #TMPmUserPermissions JOIN Server.ProcSet ON ProcSetID = ProcSetID WHERE User like 'K2:DENALLIX\Bob'
 
 DROP TABLE #TMPmGroupPermissionsGet
 CREATE TABLE #TMPmGroupPermissionsGet
@@ -25,5 +25,5 @@ CREATE TABLE #TMPmGroupPermissionsGet
    [ViewPart] BIT,
 )
 INSERT INTO #TMPmGroupPermissionsGet EXEC [Server].mGroupPermissionsGet
-
-SELECT [Admin], [Group], [Name], [ServerEvent], [Start], [View], [ViewPart] FROM  #TMPmGroupPermissionsGet JOIN Server.ProcSet ON ProcSetID = ProcSetID
+-- Process level permissions for specific process
+SELECT [Admin], [Group], [Name], [ServerEvent], [Start], [View], [ViewPart] FROM  #TMPmGroupPermissionsGet JOIN Server.ProcSet ON ProcSetID = ProcSetID WHERE Name like 'FrameworkGeneric.Workflow.Reference'
