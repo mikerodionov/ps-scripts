@@ -13,7 +13,7 @@ $K2FarmNameFQDN='K2.conundrum.com'
 $SiteName = "K2"
 
 #Create self-signed certificate
-New-SelfSignedCertificate -DnsName $K2FarmNameFQDN -CertStoreLocation cert:Localmachine\My
+New-SelfSignedCertificate -DnsName $K2FarmNameFQDN -CertStoreLocation Cert:LocalMachine\My
 
 #Create web site
 $SiteFolder = Join-Path -Path 'C:\inetpub\wwwroot' -ChildPath $SiteName
