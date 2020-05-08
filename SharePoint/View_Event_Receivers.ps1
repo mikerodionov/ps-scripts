@@ -8,7 +8,6 @@ $web = Get-SPWeb $webURL
 # Get a reference to the SharePoint list or library;
 $list = $web.Lists[$listName]
 foreach($eventReceiverDef in $list.EventReceivers)
-
 {
     if($eventReceiverDef.Name -ne “”)
     {
