@@ -1,3 +1,4 @@
+-- MSFT docs: https://docs.microsoft.com/en-us/azure/sql-database/troubleshoot-connectivity-issues-microsoft-azure-sql-database
 SELECT
    object_name
   ,CAST(f.event_data as XML).value
