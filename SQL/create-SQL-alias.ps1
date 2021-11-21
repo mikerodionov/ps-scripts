@@ -1,6 +1,6 @@
 # This script takes local machine name for SQL Server name ($ServerName)
 # and creates alias "K2SQL" ($AliasName)
-# Tested on: Windows Server 2016
+# Tested on: Windows Server 2016/2019
 
 $ServerName = Get-Content Env:Computername
 $AliasName = "K2SQL" 
