@@ -2,7 +2,7 @@
 -- If you then try to use UI to change DBO login or rename DBO user it wont work with error
 -- Msg 15150 – Cannot Alter The User ‘dbo’
 -- To fix this use script below - that will change dbo login name to sa
-Use <database_name>
+USE <database_name>
 GO
 sp_changedbowner 'sa'
 GO
