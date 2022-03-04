@@ -1,6 +1,9 @@
-# ps_scripts
-Various PowerShell Scripts
+# PS-SCRIPTS repo
 
+## Various PowerShell Scripts
+
+|Folder| Description
+|---|---|
 70-410     | Scripts which related with MSFT 70-410 exam
 70-698     | Scripts which related with MSFT 70-698 exam
 ADDS       | Active Directory Domain Services scripts
