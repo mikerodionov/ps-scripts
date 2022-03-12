@@ -1,4 +1,4 @@
-# PS-SCRIPTS repo
+# Ps-Scripts Repo #
 
 ```diff
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -15,7 +15,9 @@
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ```
 
-## Various PowerShell Scripts
+## Description ##
+
+This repository contains various scripts (PowerShell, SQL) useful which can ne useful when working with K2, Windows Server and some othet technologies.
 
 | Folder               | Description                              |
 |----------------------|------------------------------------------|
