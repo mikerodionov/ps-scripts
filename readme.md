@@ -32,7 +32,7 @@ As you can guess from repo name initial idea was to store some PowerShell script
 | Outlook              |                                          |
 | PowerShellBasics     |                                          |
 | PSFM                 |                                          |
-| Regex                |                                          |
+| Regex                | Regex Query Examples & Notes             |
 | SharePoint           | SharePoint 2013/16 scripts               |
 | SQL                  | SQL related scripts / including non-PS   |
 | Windows11            |                                          |
