@@ -17,7 +17,8 @@
 
 ## Description ##
 
-This repository contains various scripts (PowerShell, SQL) useful which can ne useful when working with K2, Windows Server and some othet technologies.
+This repository contains various scripts which can ne useful when working with K2, Windows Server and some other technologies.
+As you can guess from repo name initial idea was to store some PowerShell scripts but it evolved into a bit broader collection :)
 
 | Folder               | Description                              |
 |----------------------|------------------------------------------|
