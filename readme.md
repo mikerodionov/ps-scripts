@@ -12,6 +12,7 @@
 + \$$        \$$$$$$         \$$$$$$   \$$$$$$  \$$   \$$ \$$$$$$ \$$        \$$     \$$$$$$ 
 
 ```
+[![PSScriptAnalyzer](https://github.com/mikerodionov/ps-scripts/actions/workflows/powershell.yml/badge.svg)](https://github.com/mikerodionov/ps-scripts/actions/workflows/powershell.yml)
 
 ## Description ##
 
