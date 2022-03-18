@@ -1,4 +1,4 @@
-# On Windows Server 2019 and with 5.3 K2 Configuration service fails to start (clean install)
+## On Windows Server 2019 and with 5.3 K2 Configuration service fails to start (clean install)
 
 Start in console mode, and verify which error you are getting. You can possible receive something like that:
 
@@ -17,3 +17,14 @@ The specified framework 'Microsoft.NETCore.App', version '2.1.11' was not found.
 ```
 
 You will need to install required version of ASP.NET Core Runtime - https://dotnet.microsoft.com/en-us/download/dotnet/2.1
+
+## K2 5.3 error in installer trace
+
+```
+ AuthorizationBase.Execute: Logged Error: Failed: SourceCode.Authorization.Interfaces.EntityNotFoundException: The  with the ID '1f042828-2abc-4f7f-b5c9-6ae5c33ce75e' could not be found.
+   at SourceCode.Hosting.Client.BaseAPI.BaseAPIConnection.RemoteCall(String TypeName, String MethodName, Object[] Parameters, Boolean[] NullList, MarshalMessageType CallType)
+   at SourceCode.Authorization.Client.AuthorizationClient.DoSessionCall(String method, Object[] parameters)
+   at SourceCode.Install.Package.Actions.Authorization.AuthorizationBase.BreakObjectInheritance(Guid objectID, InheritanceRightOption option)
+   at SourceCode.Install.Package.Actions.Authorization.BreakObjectInheritance.ExecuteTarget(Target target)
+   at SourceCode.Install.Package.Actions.Authorization.AuthorizationBase.Execute(Target target)
+```
