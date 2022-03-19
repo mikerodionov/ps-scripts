@@ -29,6 +29,8 @@ You will need to install required version of ASP.NET Core Runtime - https://dotn
    at SourceCode.Install.Package.Actions.Authorization.AuthorizationBase.Execute(Target target)
 ```
 
+Possible solution: force package reinstall or repair
+
 ## K2 5.3 Force packages reinstallation
 
 1. Browse to: C:\Program Files (x86)\K2\Setup
