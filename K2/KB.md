@@ -31,10 +31,10 @@ You will need to install required version of ASP.NET Core Runtime - https://dotn
 
 ## K2 5.3 Force packages reinstallation
 
-1. Browse to: C:\Program Files (x86)\K2 blackpearl\Setup
+1. Browse to: C:\Program Files (x86)\K2\Setup
 *  Delete all the files that end on .kspx 
 
-2. Browse to: C:\Program Files (x86)\K2 blackpearl\Bin\ControlPack Controls
+2. Browse to: C:\Program Files (x86)\K2\Bin\ControlPack Controls
 * Delete all the files except “Telerik.Web.UI.dll
 
 3. Execute this script against the K2 DB after taking a full K2 database backup:
