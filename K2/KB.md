@@ -28,3 +28,24 @@ You will need to install required version of ASP.NET Core Runtime - https://dotn
    at SourceCode.Install.Package.Actions.Authorization.BreakObjectInheritance.ExecuteTarget(Target target)
    at SourceCode.Install.Package.Actions.Authorization.AuthorizationBase.Execute(Target target)
 ```
+
+## K2 5.3 Force packages reinstallation
+
+1. Browse to: C:\Program Files (x86)\K2 blackpearl\Setup
+*  Delete all the files that end on .kspx 
+
+2. Browse to: C:\Program Files (x86)\K2 blackpearl\Bin\ControlPack Controls
+* Delete all the files except “Telerik.Web.UI.dll
+
+3. Execute this script against the K2 DB after taking a full K2 database backup:
+
+```SQL
+DELETE * FROM [K2].[Hostserver].[HostserverSetting]
+WHERE [Name] LIKE '%.kspx%' 
+OR [Name] LIKE 'Register_Control_%'
+GO
+```
+
+4. Run installer with CONFIGURE option
+
+5. Reinstall the current K2 Cumulative Update and FixPack on the environment
