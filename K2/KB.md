@@ -86,3 +86,13 @@ Get-ItemPropertyValue -Path Registry::HKEY_CLASSES_ROOT\Installer\Products\5CA5B
 Get-ItemPropertyValue -Path Registry::HKEY_CLASSES_ROOT\Installer\Products\5CA5B2507AE740906419B46010707EE8\ -Name ProductName
 ```
 * 5.3 November 2020 CU expects you to be on April 2020 CU first whis is not an expected behavior too - it does not check below that level, so easiest fix is install 5.3 April 2020 CU first
+
+## K2 5.3 Multiple authentication attempts detected
+
+Error details
+```
+Detected an instance where Relying Trust is not configured properly, and requesting tokens repeatedly.
+Please ensure that the link to the K2 Server is added to the browser's trusted sites.
+```
+
+Possible solution: https://community.nintex.com/t5/Technical-Issues/Known-Issue-Behavioral-change-in-web-browsers-for-handling/ta-p/125985
