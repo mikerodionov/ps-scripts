@@ -71,7 +71,7 @@ K2 Five (5.3) Cumulative Update does not support updating your version
 SOLUTION:
 * With FP installer window open you can use Ctrt + Shift + F8 to open trace file
 * In trace file you will be able to see supported/expected K2 versions for CU (InstallChekcer.IsProductIntalledfromNamePart)
-* In case of 5.3 April 2020 CU you may see that expected full version/build is "5.0004.1000.1" for K2 5.3 RTM, which does not match updated installer build you are using (.3 most likely) - that can be corrected by editing build number in Registry - see details below - adjust build digit as required (changine 3 to 1).
+* In case of 5.3 April 2020 CU you may see that expected full version/build is "5.0004.1000.1" for K2 5.3 RTM, which does not match updated installer build you are using (.3 most likely) - that can be corrected by editing build number in Registry - see details below - adjust build digit as required (changing 3 to 1).
 ```PowerShell
 # HKCL\K2_COMPONENT_GUID\Product Name
 # K2 Package and Deployment
@@ -85,7 +85,7 @@ Get-ItemPropertyValue -Path Registry::HKEY_CLASSES_ROOT\Installer\Products\5CA5B
 # K2 Server
 Get-ItemPropertyValue -Path Registry::HKEY_CLASSES_ROOT\Installer\Products\5CA5B2507AE740906419B46010707EE8\ -Name ProductName
 ```
-* 5.3 November 2020 CU expects you to be on April 2020 CU first whis is not an expected behavior too - it does not check below that level, so easiest fix is install 5.3 April 2020 CU first
+* 5.3 November 2020 CU expects you to be on April 2020 CU first or have your build as 5.0004.1000.X - adust build in the registry to install it directly on top of 5.3 RTM.
 
 ## K2 5.3 Multiple authentication attempts detected
 
