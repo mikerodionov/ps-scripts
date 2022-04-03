@@ -50,7 +50,7 @@ Solution: force packages reinstall as desctibed in [K2 5.3 Force packages reinst
 3. Execute this script against the K2 DB after taking a full K2 database backup:
 
 ```SQL
-DELETE * FROM [K2].[Hostserver].[HostserverSetting]
+DELETE FROM [K2].[Hostserver].[HostserverSetting]
 WHERE [Name] LIKE '%.kspx%' 
 OR [Name] LIKE 'Register_Control_%'
 GO
