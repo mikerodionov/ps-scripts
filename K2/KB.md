@@ -96,3 +96,28 @@ Please ensure that the link to the K2 Server is added to the browser's trusted s
 ```
 
 Possible solution: https://community.nintex.com/t5/Technical-Issues/Known-Issue-Behavioral-change-in-web-browsers-for-handling/ta-p/125985
+
+## K2 Pass-Through Authentication settings
+
+K2 Pass-Through Authentication is installed with K2 for all installations in a distributed environment. If a simple/full installation is chosen, K2PTA is not needed and you will not see the User Configuration page.
+
+The manner in which K2 Pass-Through Authentication works can be configured using the DelegationContext node in the AppSettings section of the K2HostServer.exe.Config file found in the "%PROGRAMFILES%\K2\HostServer\Bin\" folder. The two options for this setting are ClientKerberos and ClientWindows. This setting is global for all server connections regardless of the source. If a network load balancer (NLB) is in place, all K2 server nodes should have the same setting to prevent inconsistent behavior.
+
+```
+<!-- Possible options -->
+<add key="DelegationContext" value="ClientKerberos" />
+<add key="DelegationContext" value="ClientWindows" />
+
+```
+
+###ClientKerberos
+
+ClientKerberos is the default setting and the system will assume as much if no change is made. With this option set, the K2 server performs normal delegation using NTLM and assumes that Kerberos has been configured.
+
+If Kerberos was not configured, error messages are logged in the K2 Server Log. When a connection is made that requests K2 Pass-Through Authentication, and delegation fails, an error message is logged to help identify the problem. When Kerberos Delegation or NTLM authentication takes place, the assumption is that the system is working as expected and no error messages are recorded.
+
+ClientKerberos is the recommended option for enabling maximum security, which implies that the system administrator has decided not to use K2 Pass-Through Authentication. This is the recommended option due to the benefits of using Kerberos, such as better control of delegation and the passing of authentication requests. However, Kerberos introduces the requirement for good planning and a higher degree of expertise to install. Resources are available from the K2 Customer Portal to assist in configuring Kerberos, and it is strongly recommended that these be used.
+
+### ClientWindows
+
+ClientWindows constrains K2 Pass-Through Authentication to only occur if the client credentials are of WindowsIdentity type (a valid Windows token). This implementation prevents less secure user clients such as Forms and Claims identities from passing credentials. If Kerberos (or NTLM) is working, it uses those credentials. This is the recommended option for environments containing only Windows users and who need to maximize functionality and security, and this does not require Kerberos to be configured.
