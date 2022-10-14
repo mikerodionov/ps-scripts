@@ -4,6 +4,7 @@
 # 2 - Enhanced
 # 3 - Full (Optional) diagnostic data. Desktop Analytics requires at least basic diagnostic data.
 # Microsoft recommends that you use the Optional (limited) (Enhanced (Limited)) level with Desktop Analytics
+
 $RegKey = “HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection”
 
 If(!((Get-Item -Path $RegKey).GetValue("AllowTelemetry") -ne $nul))
